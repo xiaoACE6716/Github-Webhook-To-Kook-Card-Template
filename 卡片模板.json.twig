@@ -46,7 +46,7 @@
         "type": "section",
         "text": {
           "type": "kmarkdown",
-          "content": "[{{ item.id|slice(0,6) }}]({{ item.url }}) By {{ item.author.name }}: {{ item.message }}"
+          "content": "[{{ item.id|slice(0,6) }}]({{ item.url }}) By {{ item.author.name }}: {{ item.message|json_escape() }}"
         }
       }
       {% endfor %}
