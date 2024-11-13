@@ -1,2 +1,2 @@
 # Github-Webhook-To-Kook-Card-Template
-一份Github Commit 利用 Webhook 推送到 KOOK 的卡片模板
+一份将 Github Commit 利用 Github Webhook 推送到 KOOK 的卡片消息模板
