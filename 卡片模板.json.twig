@@ -1,0 +1,55 @@
+[
+  {
+    "type": "card",
+    "theme": "info",
+    "size": "lg",
+    "modules": [
+      {
+        "type": "header",
+        "text": {
+          "type": "plain-text",
+          "content": "New Push Event from Github"
+        }
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "section",
+        "text": {
+          "type": "kmarkdown",
+          "content": "[{{ data.sender.login }}]({{ data.sender.url }}}) pushed {{ data.commits|length }} commits to\n[{{ data.repository.full_name }}]({{ data.repository.html_url }})"
+        },
+        "mode": "left",
+        "accessory": {
+          "type": "image",
+          "circle": true,
+          "src": "{{ data.sender.avatar_url }}",
+          "size": "lg"
+        }
+      },
+      {
+        "type": "divider"
+      },
+      {
+        "type": "context",
+        "elements": [
+          {
+            "type": "plain-text",
+            "content": "{{ data.before|slice(0, 6) }} → {{ data.after|slice(0, 6) }}"
+          }
+        ]
+      }
+      {% for item in data.commits %}
+        ,
+      {
+        "type": "section",
+        "text": {
+          "type": "kmarkdown",
+          "content": "[{{ item.id|slice(0,6) }}]({{ item.url }}) By {{ item.author.name }}: {{ item.message }}"
+        }
+      }
+      {% endfor %}
+    ]
+  }
+]
